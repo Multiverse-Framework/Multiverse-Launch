@@ -73,7 +73,10 @@ else
     echo "Launching the Multiverse server..."
     ($PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_multiverse_server.py --muv_file="$MUV_FILE")
 fi
+
 ($PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_simulators.py --muv_file="$MUV_FILE")
+
+($PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_processes.py --muv_file="$MUV_FILE")
 
 # for distro in noetic; do
 #     if [ -f "/opt/ros/$distro/setup.sh" ]; then
