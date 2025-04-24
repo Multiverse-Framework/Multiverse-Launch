@@ -1,0 +1,32 @@
+<mujoco model="bowling_simulation">
+  <compiler angle="radian" />
+  <option timestep="0.001" integrator="RK4">
+    <flag contact="disable" energy="enable" />
+  </option>
+  <size nkey="1" />
+  <visual>
+    <global azimuth="225" elevation="-30" />
+  </visual>
+  <worldbody>
+    <body name="bowling" pos="0 0 16">
+      <joint type="free" limited="false" actuatorfrclimited="false" />
+      <geom size="0.1" mass="10" rgba="0 0.9 0 1" />
+    </body>
+  </worldbody>
+  <keyframe>
+    <key name="home" />
+  </keyframe>
+  <extension>
+    <plugin plugin="mujoco.multiverse_connector">
+      <instance name="mujoco_client">
+        <config key="host" value="tcp://127.0.0.1" />
+        <config key="server_port" value="7000" />
+        <config key="client_port" value="7502" />
+        <config key="world_name" value="world" />
+        <config key="simulation_name" value="bowling_simulation" />
+        <config key="send" value="{'bowling': ['relative_velocity', 'position', 'quaternion']}" />
+        <config key="receive" value="{'bowling': ['force', 'torque']}" />
+      </instance>
+    </plugin>
+  </extension>
+</mujoco>

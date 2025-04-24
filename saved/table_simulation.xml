@@ -1,0 +1,39 @@
+<mujoco model="table_simulation">
+  <compiler angle="radian" />
+  <option timestep="0.001" integrator="RK4">
+    <flag contact="disable" energy="enable" />
+  </option>
+  <size nkey="1" />
+  <visual>
+    <global azimuth="225" elevation="-30" />
+  </visual>
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2="0.6 0.8 1" width="256" height="1536" />
+  </asset>
+  <worldbody>
+    <body name="table" pos="0 0 8">
+      <joint type="free" limited="false" actuatorfrclimited="false" />
+      <geom size="0.5 0.5 0.05" type="box" mass="6" rgba="0 0 0.9 1" />
+      <geom size="0.05 0.05 0.25" pos="0.45 0.45 -0.25" type="box" mass="1" rgba="0 0 0.9 1" />
+      <geom size="0.05 0.05 0.25" pos="0.45 -0.45 -0.25" type="box" mass="1" rgba="0 0 0.9 1" />
+      <geom size="0.05 0.05 0.25" pos="-0.45 0.45 -0.25" type="box" mass="1" rgba="0 0 0.9 1" />
+      <geom size="0.05 0.05 0.25" pos="-0.45 -0.45 -0.25" type="box" mass="1" rgba="0 0 0.9 1" />
+    </body>
+  </worldbody>
+  <keyframe>
+    <key name="home" />
+  </keyframe>
+  <extension>
+    <plugin plugin="mujoco.multiverse_connector">
+      <instance name="mujoco_client">
+        <config key="host" value="tcp://127.0.0.1" />
+        <config key="server_port" value="7000" />
+        <config key="client_port" value="7503" />
+        <config key="world_name" value="world" />
+        <config key="simulation_name" value="table_simulation" />
+        <config key="send" value="{'table': ['relative_velocity', 'position', 'quaternion']}" />
+        <config key="receive" value="{'table': ['force', 'torque']}" />
+      </instance>
+    </plugin>
+  </extension>
+</mujoco>

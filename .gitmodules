@@ -1,0 +1,6 @@
+[submodule "src/multiverse_connectors/multiverse_simulators_connector"]
+	path = src/multiverse_connectors/multiverse_simulators_connector
+	url = https://github.com/Multiverse-Framework/Multiverse-Simulators-Connector.git
+[submodule "src/multiverse_connectors/multiverse_python_connector"]
+	path = src/multiverse_connectors/multiverse_python_connector
+	url = https://github.com/Multiverse-Framework/Multiverse-ClientPy.git

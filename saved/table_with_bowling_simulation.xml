@@ -1,0 +1,255 @@
+<mujoco model="table_with_bowling_simulation">
+  <compiler angle="radian" />
+  <option timestep="0.001" integrator="RK4">
+    <flag energy="enable" />
+  </option>
+  <size memory="1G" nkey="1" />
+  <visual>
+    <global azimuth="225" elevation="-30" />
+  </visual>
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="1 1 1" rgb2="0.6 0.8 1" width="256" height="1536" />
+    <texture type="2d" name="grid" builtin="checker" rgb1="0.1 0.2 0.3" rgb2="0.2 0.3 0.4" width="512" height="512" />
+    <material name="grid" texture="grid" texuniform="true" reflectance="0.2" />
+    <mesh name="bowl_bottom" file="/media/giangnguyen/Storage/Multiverse-Launch/resources/worlds/table_with_bowling/huge_bowl/stl/bowl_bottom.stl" scale="10 10 10" />
+    <mesh name="bowl_side_1" file="/media/giangnguyen/Storage/Multiverse-Launch/resources/worlds/table_with_bowling/huge_bowl/stl/bowl_side_1.stl" scale="10 10 10" />
+    <mesh name="bowl_side_2" file="/media/giangnguyen/Storage/Multiverse-Launch/resources/worlds/table_with_bowling/huge_bowl/stl/bowl_side_2.stl" scale="10 10 10" />
+    <mesh name="bowl_side_3" file="/media/giangnguyen/Storage/Multiverse-Launch/resources/worlds/table_with_bowling/huge_bowl/stl/bowl_side_3.stl" scale="10 10 10" />
+    <mesh name="bowl_side_4" file="/media/giangnguyen/Storage/Multiverse-Launch/resources/worlds/table_with_bowling/huge_bowl/stl/bowl_side_4.stl" scale="10 10 10" />
+    <mesh name="bowl_side_5" file="/media/giangnguyen/Storage/Multiverse-Launch/resources/worlds/table_with_bowling/huge_bowl/stl/bowl_side_5.stl" scale="10 10 10" />
+    <mesh name="bowl_side_6" file="/media/giangnguyen/Storage/Multiverse-Launch/resources/worlds/table_with_bowling/huge_bowl/stl/bowl_side_6.stl" scale="10 10 10" />
+  </asset>
+  <worldbody>
+    <geom name="floor" size="0 0 0.05" type="plane" material="grid" />
+    <light pos="0 0 5" dir="0 0 -1" diffuse="0.5 0.5 0.5" />
+    <body name="bowl">
+      <body name="bowl_body">
+        <geom name="bowl_bottom" type="mesh" rgba="1 1 1 1" mesh="bowl_bottom" />
+        <geom name="bowl_side_1_1" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_1_2" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_1_3" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_1_4" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_1_5" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_1_6" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_2_1" pos="0 0 0" quat="0.995187 0 0 0.0979925" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_2_2" pos="0 0 0" quat="0.995187 0 0 0.0979925" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_2_3" pos="0 0 0" quat="0.995187 0 0 0.0979925" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_2_4" pos="0 0 0" quat="0.995187 0 0 0.0979925" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_2_5" pos="0 0 0" quat="0.995187 0 0 0.0979925" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_2_6" pos="0 0 0" quat="0.995187 0 0 0.0979925" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_3_1" pos="0 0 0" quat="0.980785 0 0 0.195091" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_3_2" pos="0 0 0" quat="0.980785 0 0 0.195091" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_3_3" pos="0 0 0" quat="0.980785 0 0 0.195091" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_3_4" pos="0 0 0" quat="0.980785 0 0 0.195091" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_3_5" pos="0 0 0" quat="0.980785 0 0 0.195091" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_3_6" pos="0 0 0" quat="0.980785 0 0 0.195091" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_4_1" pos="0 0 0" quat="0.956947 0 0 0.290261" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_4_2" pos="0 0 0" quat="0.956947 0 0 0.290261" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_4_3" pos="0 0 0" quat="0.956947 0 0 0.290261" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_4_4" pos="0 0 0" quat="0.956947 0 0 0.290261" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_4_5" pos="0 0 0" quat="0.956947 0 0 0.290261" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_4_6" pos="0 0 0" quat="0.956947 0 0 0.290261" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_5_1" pos="0 0 0" quat="0.923879 0 0 0.382684" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_5_2" pos="0 0 0" quat="0.923879 0 0 0.382684" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_5_3" pos="0 0 0" quat="0.923879 0 0 0.382684" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_5_4" pos="0 0 0" quat="0.923879 0 0 0.382684" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_5_5" pos="0 0 0" quat="0.923879 0 0 0.382684" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_5_6" pos="0 0 0" quat="0.923879 0 0 0.382684" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_6_1" pos="0 0 0" quat="0.881933 0 0 0.471376" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_6_2" pos="0 0 0" quat="0.881933 0 0 0.471376" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_6_3" pos="0 0 0" quat="0.881933 0 0 0.471376" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_6_4" pos="0 0 0" quat="0.881933 0 0 0.471376" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_6_5" pos="0 0 0" quat="0.881933 0 0 0.471376" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_6_6" pos="0 0 0" quat="0.881933 0 0 0.471376" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_7_1" pos="0 0 0" quat="0.831469 0 0 0.555571" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_7_2" pos="0 0 0" quat="0.831469 0 0 0.555571" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_7_3" pos="0 0 0" quat="0.831469 0 0 0.555571" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_7_4" pos="0 0 0" quat="0.831469 0 0 0.555571" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_7_5" pos="0 0 0" quat="0.831469 0 0 0.555571" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_7_6" pos="0 0 0" quat="0.831469 0 0 0.555571" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_8_1" pos="0 0 0" quat="0.773025 0 0 0.634375" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_8_2" pos="0 0 0" quat="0.773025 0 0 0.634375" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_8_3" pos="0 0 0" quat="0.773025 0 0 0.634375" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_8_4" pos="0 0 0" quat="0.773025 0 0 0.634375" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_8_5" pos="0 0 0" quat="0.773025 0 0 0.634375" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_8_6" pos="0 0 0" quat="0.773025 0 0 0.634375" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_9_1" pos="0 0 0" quat="0.707105 0 0 0.707108" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_9_2" pos="0 0 0" quat="0.707105 0 0 0.707108" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_9_3" pos="0 0 0" quat="0.707105 0 0 0.707108" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_9_4" pos="0 0 0" quat="0.707105 0 0 0.707108" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_9_5" pos="0 0 0" quat="0.707105 0 0 0.707108" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_9_6" pos="0 0 0" quat="0.707105 0 0 0.707108" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_10_1" pos="0 0 0" quat="0.634411 0 0 0.772996" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_10_2" pos="0 0 0" quat="0.634411 0 0 0.772996" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_10_3" pos="0 0 0" quat="0.634411 0 0 0.772996" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_10_4" pos="0 0 0" quat="0.634411 0 0 0.772996" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_10_5" pos="0 0 0" quat="0.634411 0 0 0.772996" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_10_6" pos="0 0 0" quat="0.634411 0 0 0.772996" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_11_1" pos="0 0 0" quat="0.555568 0 0 0.831471" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_11_2" pos="0 0 0" quat="0.555568 0 0 0.831471" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_11_3" pos="0 0 0" quat="0.555568 0 0 0.831471" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_11_4" pos="0 0 0" quat="0.555568 0 0 0.831471" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_11_5" pos="0 0 0" quat="0.555568 0 0 0.831471" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_11_6" pos="0 0 0" quat="0.555568 0 0 0.831471" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_12_1" pos="0 0 0" quat="0.471417 0 0 0.881911" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_12_2" pos="0 0 0" quat="0.471417 0 0 0.881911" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_12_3" pos="0 0 0" quat="0.471417 0 0 0.881911" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_12_4" pos="0 0 0" quat="0.471417 0 0 0.881911" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_12_5" pos="0 0 0" quat="0.471417 0 0 0.881911" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_12_6" pos="0 0 0" quat="0.471417 0 0 0.881911" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_13_1" pos="0 0 0" quat="0.382681 0 0 0.923881" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_13_2" pos="0 0 0" quat="0.382681 0 0 0.923881" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_13_3" pos="0 0 0" quat="0.382681 0 0 0.923881" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_13_4" pos="0 0 0" quat="0.382681 0 0 0.923881" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_13_5" pos="0 0 0" quat="0.382681 0 0 0.923881" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_13_6" pos="0 0 0" quat="0.382681 0 0 0.923881" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_14_1" pos="0 0 0" quat="0.290306 0 0 0.956934" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_14_2" pos="0 0 0" quat="0.290306 0 0 0.956934" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_14_3" pos="0 0 0" quat="0.290306 0 0 0.956934" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_14_4" pos="0 0 0" quat="0.290306 0 0 0.956934" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_14_5" pos="0 0 0" quat="0.290306 0 0 0.956934" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_14_6" pos="0 0 0" quat="0.290306 0 0 0.956934" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_15_1" pos="0 0 0" quat="0.195087 0 0 0.980786" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_15_2" pos="0 0 0" quat="0.195087 0 0 0.980786" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_15_3" pos="0 0 0" quat="0.195087 0 0 0.980786" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_15_4" pos="0 0 0" quat="0.195087 0 0 0.980786" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_15_5" pos="0 0 0" quat="0.195087 0 0 0.980786" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_15_6" pos="0 0 0" quat="0.195087 0 0 0.980786" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_16_1" pos="0 0 0" quat="0.0980386 0 0 0.995183" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_16_2" pos="0 0 0" quat="0.0980386 0 0 0.995183" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_16_3" pos="0 0 0" quat="0.0980386 0 0 0.995183" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_16_4" pos="0 0 0" quat="0.0980386 0 0 0.995183" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_16_5" pos="0 0 0" quat="0.0980386 0 0 0.995183" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_16_6" pos="0 0 0" quat="0.0980386 0 0 0.995183" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_17_1" pos="0 0 0" quat="-3.67321e-06 0 0 1" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_17_2" pos="0 0 0" quat="-3.67321e-06 0 0 1" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_17_3" pos="0 0 0" quat="-3.67321e-06 0 0 1" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_17_4" pos="0 0 0" quat="-3.67321e-06 0 0 1" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_17_5" pos="0 0 0" quat="-3.67321e-06 0 0 1" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_17_6" pos="0 0 0" quat="-3.67321e-06 0 0 1" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_18_1" pos="0 0 0" quat="-0.0979961 0 0 0.995187" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_18_2" pos="0 0 0" quat="-0.0979961 0 0 0.995187" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_18_3" pos="0 0 0" quat="-0.0979961 0 0 0.995187" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_18_4" pos="0 0 0" quat="-0.0979961 0 0 0.995187" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_18_5" pos="0 0 0" quat="-0.0979961 0 0 0.995187" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_18_6" pos="0 0 0" quat="-0.0979961 0 0 0.995187" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_19_1" pos="0 0 0" quat="-0.195094 0 0 0.980784" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_19_2" pos="0 0 0" quat="-0.195094 0 0 0.980784" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_19_3" pos="0 0 0" quat="-0.195094 0 0 0.980784" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_19_4" pos="0 0 0" quat="-0.195094 0 0 0.980784" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_19_5" pos="0 0 0" quat="-0.195094 0 0 0.980784" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_19_6" pos="0 0 0" quat="-0.195094 0 0 0.980784" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_20_1" pos="0 0 0" quat="-0.290265 0 0 0.956946" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_20_2" pos="0 0 0" quat="-0.290265 0 0 0.956946" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_20_3" pos="0 0 0" quat="-0.290265 0 0 0.956946" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_20_4" pos="0 0 0" quat="-0.290265 0 0 0.956946" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_20_5" pos="0 0 0" quat="-0.290265 0 0 0.956946" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_20_6" pos="0 0 0" quat="-0.290265 0 0 0.956946" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_21_1" pos="0 0 0" quat="-0.382688 0 0 0.923878" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_21_2" pos="0 0 0" quat="-0.382688 0 0 0.923878" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_21_3" pos="0 0 0" quat="-0.382688 0 0 0.923878" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_21_4" pos="0 0 0" quat="-0.382688 0 0 0.923878" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_21_5" pos="0 0 0" quat="-0.382688 0 0 0.923878" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_21_6" pos="0 0 0" quat="-0.382688 0 0 0.923878" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_22_1" pos="0 0 0" quat="-0.471379 0 0 0.881931" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_22_2" pos="0 0 0" quat="-0.471379 0 0 0.881931" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_22_3" pos="0 0 0" quat="-0.471379 0 0 0.881931" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_22_4" pos="0 0 0" quat="-0.471379 0 0 0.881931" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_22_5" pos="0 0 0" quat="-0.471379 0 0 0.881931" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_22_6" pos="0 0 0" quat="-0.471379 0 0 0.881931" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_23_1" pos="0 0 0" quat="-0.555574 0 0 0.831467" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_23_2" pos="0 0 0" quat="-0.555574 0 0 0.831467" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_23_3" pos="0 0 0" quat="-0.555574 0 0 0.831467" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_23_4" pos="0 0 0" quat="-0.555574 0 0 0.831467" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_23_5" pos="0 0 0" quat="-0.555574 0 0 0.831467" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_23_6" pos="0 0 0" quat="-0.555574 0 0 0.831467" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_24_1" pos="0 0 0" quat="-0.634378 0 0 0.773023" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_24_2" pos="0 0 0" quat="-0.634378 0 0 0.773023" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_24_3" pos="0 0 0" quat="-0.634378 0 0 0.773023" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_24_4" pos="0 0 0" quat="-0.634378 0 0 0.773023" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_24_5" pos="0 0 0" quat="-0.634378 0 0 0.773023" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_24_6" pos="0 0 0" quat="-0.634378 0 0 0.773023" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_25_1" pos="0 0 0" quat="-0.707111 0 0 0.707103" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_25_2" pos="0 0 0" quat="-0.707111 0 0 0.707103" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_25_3" pos="0 0 0" quat="-0.707111 0 0 0.707103" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_25_4" pos="0 0 0" quat="-0.707111 0 0 0.707103" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_25_5" pos="0 0 0" quat="-0.707111 0 0 0.707103" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_25_6" pos="0 0 0" quat="-0.707111 0 0 0.707103" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_26_1" pos="0 0 0" quat="-0.772998 0 0 0.634408" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_26_2" pos="0 0 0" quat="-0.772998 0 0 0.634408" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_26_3" pos="0 0 0" quat="-0.772998 0 0 0.634408" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_26_4" pos="0 0 0" quat="-0.772998 0 0 0.634408" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_26_5" pos="0 0 0" quat="-0.772998 0 0 0.634408" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_26_6" pos="0 0 0" quat="-0.772998 0 0 0.634408" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_27_1" pos="0 0 0" quat="-0.831473 0 0 0.555565" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_27_2" pos="0 0 0" quat="-0.831473 0 0 0.555565" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_27_3" pos="0 0 0" quat="-0.831473 0 0 0.555565" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_27_4" pos="0 0 0" quat="-0.831473 0 0 0.555565" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_27_5" pos="0 0 0" quat="-0.831473 0 0 0.555565" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_27_6" pos="0 0 0" quat="-0.831473 0 0 0.555565" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_28_1" pos="0 0 0" quat="-0.881912 0 0 0.471413" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_28_2" pos="0 0 0" quat="-0.881912 0 0 0.471413" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_28_3" pos="0 0 0" quat="-0.881912 0 0 0.471413" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_28_4" pos="0 0 0" quat="-0.881912 0 0 0.471413" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_28_5" pos="0 0 0" quat="-0.881912 0 0 0.471413" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_28_6" pos="0 0 0" quat="-0.881912 0 0 0.471413" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_29_1" pos="0 0 0" quat="-0.923882 0 0 0.382677" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_29_2" pos="0 0 0" quat="-0.923882 0 0 0.382677" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_29_3" pos="0 0 0" quat="-0.923882 0 0 0.382677" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_29_4" pos="0 0 0" quat="-0.923882 0 0 0.382677" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_29_5" pos="0 0 0" quat="-0.923882 0 0 0.382677" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_29_6" pos="0 0 0" quat="-0.923882 0 0 0.382677" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_30_1" pos="0 0 0" quat="-0.956935 0 0 0.290302" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_30_2" pos="0 0 0" quat="-0.956935 0 0 0.290302" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_30_3" pos="0 0 0" quat="-0.956935 0 0 0.290302" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_30_4" pos="0 0 0" quat="-0.956935 0 0 0.290302" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_30_5" pos="0 0 0" quat="-0.956935 0 0 0.290302" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_30_6" pos="0 0 0" quat="-0.956935 0 0 0.290302" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_31_1" pos="0 0 0" quat="-0.980787 0 0 0.195084" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_31_2" pos="0 0 0" quat="-0.980787 0 0 0.195084" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_31_3" pos="0 0 0" quat="-0.980787 0 0 0.195084" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_31_4" pos="0 0 0" quat="-0.980787 0 0 0.195084" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_31_5" pos="0 0 0" quat="-0.980787 0 0 0.195084" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_31_6" pos="0 0 0" quat="-0.980787 0 0 0.195084" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+        <geom name="bowl_side_32_1" pos="0 0 0" quat="-0.995183 0 0 0.0980349" type="mesh" rgba="1 1 1 1" mesh="bowl_side_1" />
+        <geom name="bowl_side_32_2" pos="0 0 0" quat="-0.995183 0 0 0.0980349" type="mesh" rgba="1 1 1 1" mesh="bowl_side_2" />
+        <geom name="bowl_side_32_3" pos="0 0 0" quat="-0.995183 0 0 0.0980349" type="mesh" rgba="1 1 1 1" mesh="bowl_side_3" />
+        <geom name="bowl_side_32_4" pos="0 0 0" quat="-0.995183 0 0 0.0980349" type="mesh" rgba="1 1 1 1" mesh="bowl_side_4" />
+        <geom name="bowl_side_32_5" pos="0 0 0" quat="-0.995183 0 0 0.0980349" type="mesh" rgba="1 1 1 1" mesh="bowl_side_5" />
+        <geom name="bowl_side_32_6" pos="0 0 0" quat="-0.995183 0 0 0.0980349" type="mesh" rgba="1 1 1 1" mesh="bowl_side_6" />
+      </body>
+    </body>
+    <body name="table" pos="0 0 8">
+      <joint type="free" limited="false" actuatorfrclimited="false" />
+      <geom size="0.5 0.5 0.05" type="box" mass="6" rgba="0 0 0.9 1" />
+      <geom size="0.05 0.05 0.25" pos="0.45 0.45 -0.25" type="box" mass="1" rgba="0 0 0.9 1" />
+      <geom size="0.05 0.05 0.25" pos="0.45 -0.45 -0.25" type="box" mass="1" rgba="0 0 0.9 1" />
+      <geom size="0.05 0.05 0.25" pos="-0.45 0.45 -0.25" type="box" mass="1" rgba="0 0 0.9 1" />
+      <geom size="0.05 0.05 0.25" pos="-0.45 -0.45 -0.25" type="box" mass="1" rgba="0 0 0.9 1" />
+    </body>
+    <body name="bowling" pos="0.5 0 16">
+      <joint type="free" limited="false" actuatorfrclimited="false" />
+      <geom size="0.1" mass="10" rgba="0 0.9 0 1" />
+    </body>
+    <body name="cube" pos="1.5 0 1">
+      <joint type="free" limited="false" actuatorfrclimited="false" />
+      <geom size="0.1 0.1 0.1" type="box" mass="10" rgba="0 0 0.9 1" />
+    </body>
+  </worldbody>
+  <keyframe>
+    <key name="home" />
+  </keyframe>
+  <extension>
+    <plugin plugin="mujoco.multiverse_connector">
+      <instance name="mujoco_client">
+        <config key="host" value="tcp://127.0.0.1" />
+        <config key="server_port" value="7000" />
+        <config key="client_port" value="7501" />
+        <config key="world_name" value="world" />
+        <config key="simulation_name" value="table_with_bowling_simulation" />
+        <config key="send" value="{'bowling': ['force', 'torque'], 'table': ['force', 'torque']}" />
+        <config key="receive" value="{'bowling': ['relative_velocity', 'position', 'quaternion'], 'table': ['relative_velocity', 'position', 'quaternion'], 'cube': ['relative_velocity', 'position', 'quaternion']}" />
+      </instance>
+    </plugin>
+  </extension>
+</mujoco>
