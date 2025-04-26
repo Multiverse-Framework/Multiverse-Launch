@@ -8,12 +8,11 @@ if %ERRORLEVEL%==0 (
 set "MULTIVERSE_LAUNCH_PATH=%~dp0.."
 
 REM Check if an argument is provided
-if "%~1"=="" (
-    echo Usage: %0 path\to\your\project.muv"
-    exit /b 1
+set "MUV_FILE=%~1"
+if "%MUV_FILE%"=="" (
+    set "MUV_FILE=%MULTIVERSE_LAUNCH_PATH%\resources\muv\table_with_bowling.muv"
 )
 
-set "MUV_FILE=%~1"
 set "PYTHON_EXECUTABLE=python.exe"
 if not exist %MUV_FILE% (
     echo Error: File %MUV_FILE% not found.
