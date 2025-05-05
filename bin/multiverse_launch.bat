@@ -24,6 +24,8 @@ if not exist %MUV_FILE% (
 set "PATH=%MULTIVERSE_LAUNCH_PATH%\bin;%PATH%"
 %PYTHON_EXECUTABLE% %MULTIVERSE_LAUNCH_PATH%\scripts\launch_simulators.py --muv_file=%MUV_FILE%
 
+%PYTHON_EXECUTABLE%  %MULTIVERSE_LAUNCH_PATH%\scripts\launch_processes.py --muv_file=%MUV_FILE%
+
 echo [multiverse_launch] Running... Press Ctrl+C to exit
 :loop
 timeout /t 1 >nul
