@@ -22,6 +22,7 @@ if not exist %MUV_FILE% (
 %PYTHON_EXECUTABLE% %MULTIVERSE_LAUNCH_PATH%\scripts\launch_multiverse_server.py --muv_file=%MUV_FILE%
 
 set "PATH=%MULTIVERSE_LAUNCH_PATH%\bin;%PATH%"
+set "PYTHONPATH=%MULTIVERSE_LAUNCH_PATH%\src\multiverse_connectors\multiverse_python_connector"
 %PYTHON_EXECUTABLE% %MULTIVERSE_LAUNCH_PATH%\scripts\launch_simulators.py --muv_file=%MUV_FILE%
 
 %PYTHON_EXECUTABLE%  %MULTIVERSE_LAUNCH_PATH%\scripts\launch_processes.py --muv_file=%MUV_FILE%
