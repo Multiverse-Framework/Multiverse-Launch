@@ -4,3 +4,6 @@
 [submodule "src/multiverse_connectors/multiverse_python_connector"]
 	path = src/multiverse_connectors/multiverse_python_connector
 	url = https://github.com/Multiverse-Framework/Multiverse-ClientPy.git
+[submodule "src/multiverse_connectors/multiverse_ros_connector"]
+	path = src/multiverse_connectors/multiverse_ros_connector
+	url = https://github.com/Multiverse-Framework/Multiverse-ROS-Connector.git
