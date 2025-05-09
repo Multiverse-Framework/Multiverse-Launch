@@ -76,40 +76,38 @@ fi
 
 ($PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_simulators.py --muv_file="$MUV_FILE")
 
+for distro in noetic; do
+    if [ -f "/opt/ros/$distro/setup.sh" ]; then
+        ROS_DISTRO=$distro
+        break
+    fi
+done
+MULTIVERSE_WS_PATH="$MULTIVERSE_LAUNCH_PATH"/src/multiverse_connectors/multiverse_ros_connector/ros_ws/multiverse_ws/devel/setup.bash
+if [ "$ROS_DISTRO" ] && [ -f "$MULTIVERSE_WS_PATH" ]; then
+    (
+        source /opt/ros/$ROS_DISTRO/setup.bash;
+        source "$MULTIVERSE_WS_PATH";
+        PYTHONPATH=$PYTHONPATH:"$MULTIVERSE_LAUNCH_PATH"/src/multiverse_connectors/multiverse_python_connector:"$MULTIVERSE_LAUNCH_PATH"/src/multiverse_connectors/multiverse_ros_connector/src $PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_ros.py --muv_file="$MUV_FILE"
+    )
+fi
+
+for distro in foxy humble jazzy; do
+    if [ -f "/opt/ros/$distro/setup.sh" ]; then
+        ROS2_DISTRO=$distro
+        break
+    fi
+done
+MULTIVERSE_WS2_PATH="$MULTIVERSE_LAUNCH_PATH"/src/multiverse_connectors/multiverse_ros_connector/ros_ws/multiverse_ws2/install/local_setup.bash
+if [ "$ROS2_DISTRO" ] && [ -f "$MULTIVERSE_WS2_PATH" ]; then
+    (
+        source /opt/ros/$ROS2_DISTRO/setup.bash;
+        source "$MULTIVERSE_WS2_PATH";
+        PYTHONPATH=$PYTHONPATH:"$MULTIVERSE_LAUNCH_PATH"/src/multiverse_connectors/multiverse_python_connector:"$MULTIVERSE_LAUNCH_PATH"/src/multiverse_connectors/multiverse_ros_connector/src $PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_ros.py --muv_file="$MUV_FILE"
+    )
+fi
+
 (PYTHONPATH="$MULTIVERSE_LAUNCH_PATH"/src/multiverse_connectors/multiverse_python_connector $PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_processes.py --muv_file="$MUV_FILE")
 
-# for distro in noetic; do
-#     if [ -f "/opt/ros/$distro/setup.sh" ]; then
-#         ROS_DISTRO=$distro
-#         break
-#     fi
-# done
-
-# MULTIVERSE_WS_PATH="$MULTIVERSE_LAUNCH_PATH"/../multiverse_ws/devel/setup.bash
-# if [ "$ROS_DISTRO" ] && [ -f "$MULTIVERSE_WS_PATH" ]; then
-#     (source $MULTIVERSE_WS_PATH && $PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/modules/multiverse_connectors/scripts/launch_ros.py --muv_file="$MUV_FILE")
-# fi
-
-# for distro in foxy humble jazzy; do
-#     if [ -f "/opt/ros/$distro/setup.sh" ]; then
-#         ROS2_DISTRO=$distro
-#         break
-#     fi
-# done
-
-# MULTIVERSE_WS2_PATH="$MULTIVERSE_LAUNCH_PATH"/../multiverse_ws2/install/local_setup.bash
-# if [ "$ROS2_DISTRO" ] && [ -f "$MULTIVERSE_WS2_PATH" ]; then
-#     if [ $ROS2_DISTRO = "foxy" ]; then
-#         workon multiverse3.8
-#         PYTHON_EXECUTABLE=python3.8 # ROS 2 Foxy only supports Python 3.8
-#     elif [ $ROS2_DISTRO = "jazzy" ]; then
-#         workon multiverse3.12
-#         PYTHON_EXECUTABLE=python3.12 # ROS 2 Jazzy only supports Python 3.12
-#     fi
-#     (source /opt/ros/$ROS2_DISTRO/setup.bash && source "$MULTIVERSE_WS2_PATH" && $PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/modules/multiverse_connectors/scripts/launch_ros.py --muv_file="$MUV_FILE")
-# fi
-
-# Your script's main logic here
 echo "[multiverse_launch] Running... Press Ctrl+C to exit"
 while true; do
     sleep 1
