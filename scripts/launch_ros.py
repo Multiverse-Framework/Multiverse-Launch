@@ -429,6 +429,17 @@ class MultiverseRosLaunch(MultiverseLaunch):
                 )
                 processes.append(process)
 
+        if "tf2_ros" in ros_run:
+            if INTERFACE == Interface.ROS2:
+                from utils import run_tf2_ros
+
+                for node in ros_run["tf2_ros"]:
+                    for node_name, node_params in node.items():
+                        if not isinstance(node_params, list):
+                            raise ValueError("node_params should be a list")
+                        process = run_tf2_ros(node_name, node_params)
+                        processes.append(process)
+
         return processes
 
     def _run_controller_command(

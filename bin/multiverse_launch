@@ -10,7 +10,7 @@ trap handle_sigint SIGINT
 
 NO_MULTIVERSE_SERVER=false
 KILL_EVERYTHING_FROM_START=true
-COMMAND_PATTERNS=("mujoco.py" "multiverse_server")
+COMMAND_PATTERNS=("mujoco.py" "multiverse_server", "ros2")
 
 for arg in "$@"; do
     if [ "$arg" == "--no-multiverse-server" ]; then
@@ -106,7 +106,7 @@ if [ "$ROS2_DISTRO" ] && [ -f "$MULTIVERSE_WS2_PATH" ]; then
     )
 fi
 
-(PYTHONPATH="$MULTIVERSE_LAUNCH_PATH"/src/multiverse_connectors/multiverse_python_connector $PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_processes.py --muv_file="$MUV_FILE")
+(PYTHONPATH="$MULTIVERSE_LAUNCH_PATH"/src/multiverse_connectors/multiverse_python_connector:$PYTHONPATH $PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_processes.py --muv_file="$MUV_FILE")
 
 echo "[multiverse_launch] Running... Press Ctrl+C to exit"
 while true; do
