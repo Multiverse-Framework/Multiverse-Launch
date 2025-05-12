@@ -45,6 +45,9 @@ if [ "$KILL_EVERYTHING_FROM_START" = true ]; then
     done
 fi
 
+# Sleep for 1 second to ensure all processes are killed
+sleep 1
+
 MULTIVERSE_LAUNCH_PATH=$(dirname "$(dirname "$0")")
 
 # Check if an argument is provided
