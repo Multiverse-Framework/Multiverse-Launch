@@ -6,7 +6,7 @@ from .utils import find_files, get_urdf_str_from_ros_package, get_urdf_str_abs, 
 import yaml
 import shutil
 
-def run_rviz(rviz_dict, resources_paths, mesh_abspath_prefix, multiverse_control_pkg_path) -> subprocess.Popen:
+def run_rviz(rviz_dict, resources_paths, mesh_abspath_prefix, rviz_pkg_path) -> subprocess.Popen:
     import rospy
     for robot_description, urdf_path in rviz_dict.get("robot_descriptions", {}).items():
         prefix = ""
@@ -18,7 +18,7 @@ def run_rviz(rviz_dict, resources_paths, mesh_abspath_prefix, multiverse_control
 
         if urdf_path.endswith(".urdf"):
             urdf_path = find_files(resources_paths, urdf_path)
-            urdf_str = get_urdf_str_from_ros_package(mesh_abspath_prefix, multiverse_control_pkg_path, urdf_path)
+            urdf_str = get_urdf_str_from_ros_package(mesh_abspath_prefix, rviz_pkg_path, urdf_path)
             if prefix != "" or suffix != "":
                 from xml.etree import ElementTree as ET
                 root = ET.fromstring(urdf_str)
@@ -47,7 +47,7 @@ def run_rviz(rviz_dict, resources_paths, mesh_abspath_prefix, multiverse_control
                 exporter.build()
                 exporter.export(keep_usd=True)
                 print("Conversion complete and URDF saved at: ", urdf_path)
-                urdf_str = get_urdf_str_from_ros_package(mesh_abspath_prefix, multiverse_control_pkg_path, urdf_path)
+                urdf_str = get_urdf_str_from_ros_package(mesh_abspath_prefix, rviz_pkg_path, urdf_path)
                 rospy.set_param(f"/{robot_description}", f"{urdf_str}")
 
     if "config" in rviz_dict:

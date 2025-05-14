@@ -35,7 +35,7 @@ def get_urdf_str_from_ros_package(mesh_abspath_prefix: str, ros_pkg_path: str, u
     root = tree.getroot()
     robot_urdf_str = ET.tostring(root, encoding="unicode")
     mesh_relpath_prefix = os.path.relpath(os.path.dirname(urdf_path), ros_pkg_path)
-    mesh_relpath_prefix = os.path.join("package://multiverse_control", mesh_relpath_prefix) + "/"
+    mesh_relpath_prefix = os.path.join("package://rviz", mesh_relpath_prefix) + "/"
     robot_urdf_str = robot_urdf_str.replace("file:///", mesh_abspath_prefix + "/")
     robot_urdf_str = robot_urdf_str.replace("file://", mesh_relpath_prefix)
     return robot_urdf_str
