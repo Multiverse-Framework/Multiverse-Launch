@@ -1,1 +1,5 @@
 pyyaml
+urdf_parser_py
+rospkg
+pyside2
+PyQt5
