@@ -145,9 +145,13 @@ class MultiverseRosLaunch(MultiverseLaunch):
             robot_urdf_path = find_files(
                 self.resources_paths, controller_manager["urdf"]
             )
+            import rospkg
+
+            ros_package = rospkg.RosPack()
+            rviz_pkg_path = ros_package.get_path("rviz")
             robot_urdf_str = get_urdf_str_from_ros_package(
                 self.mesh_abspath_prefix,
-                self.multiverse_control_pkg_path,
+                rviz_pkg_path,
                 robot_urdf_path,
             )
 
