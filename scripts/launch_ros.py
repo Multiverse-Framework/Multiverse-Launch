@@ -377,12 +377,16 @@ class MultiverseRosLaunch(MultiverseLaunch):
                 raise ValueError(f"Invalid interface")
 
             from utils import run_rviz
+            import rospkg
+
+            ros_package = rospkg.RosPack()
+            rviz_pkg_path = ros_package.get_path("rviz")
 
             process = run_rviz(
                 ros_run["rviz"],
                 self.resources_paths,
                 self.mesh_abspath_prefix,
-                self.multiverse_control_pkg_path,
+                rviz_pkg_path,
             )
             processes.append(process)
 
