@@ -33,7 +33,11 @@ class MultiverseProcessesLaunch(MultiverseLaunch):
                             arg_value = find_files(self.resources_paths, arg_value)
                         elif isinstance(arg_value, list):
                             arg_value = ",".join(arg_value)
-                        cmd.append(f"--{arg_name}={arg_value}")
+                        if isinstance(arg_value, bool):
+                            if arg_value:
+                                cmd.append(f"--{arg_name}")
+                        else:
+                            cmd.append(f"--{arg_name}={arg_value}")
                 else:
                     cmd.append(f"{process_args}")
                 process = run_subprocess(cmd)
