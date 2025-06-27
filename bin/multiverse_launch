@@ -10,7 +10,7 @@ trap handle_sigint SIGINT
 
 NO_MULTIVERSE_SERVER=false
 KILL_EVERYTHING_FROM_START=true
-COMMAND_PATTERNS=("mujoco.py" "multiverse_server", "ros2")
+COMMAND_PATTERNS=("mujoco.py" "multiverse_server")
 
 for arg in "$@"; do
     if [ "$arg" == "--no-multiverse-server" ]; then
