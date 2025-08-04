@@ -47,10 +47,30 @@ def parse_isaac_sim(resources_paths: List[str], isaac_sim_data: Dict[str, Any]):
     return isaac_sim_args
 
 
+def parse_gazebo(resources_paths: List[str], gazebo_data: Dict[str, Any]):
+    worlds_path = find_files(resources_paths, gazebo_data["world"]["path"])
+    gazebo_args = [f"--world_path={worlds_path}"]
+
+    for entity_str in ["robots", "objects"]:
+        if entity_str in gazebo_data:
+            for entity_name in gazebo_data[entity_str]:
+                if "path" in gazebo_data[entity_str][entity_name]:
+                    gazebo_data[entity_str][entity_name]["path"] = find_files(resources_paths,
+                                                                              gazebo_data[entity_str][entity_name][
+                                                                                  "path"])
+            entity_dict = gazebo_data[entity_str]
+            gazebo_args.append(f"--{entity_str}={entity_dict}".replace(" ", ""))
+    if "references" in gazebo_data:
+        gazebo_args.append(f"--references={gazebo_data['references']}".replace(" ", ""))
+
+    return gazebo_args
+
+
 class MultiverseSimulationLaunch(MultiverseLaunch):
     simulator_compilers = {
         "mujoco": "mujoco_compiler",
         "isaac_sim": "isaac_sim_compiler",
+        "gazebo": "gazebo_compiler",
     }
 
     def __init__(self):
@@ -72,6 +92,8 @@ class MultiverseSimulationLaunch(MultiverseLaunch):
             return parse_mujoco(self.resources_paths, simulation_data)
         elif simulation_data["simulator"] == "isaac_sim":
             return parse_isaac_sim(self.resources_paths, simulation_data)
+        elif simulation_data["simulator"] == "gazebo":
+            return parse_gazebo(self.resources_paths, simulation_data)
         else:
             raise NotImplementedError(f"Simulator {simulation_data['simulator']} not implemented")
 
