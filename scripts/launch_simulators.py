@@ -156,6 +156,9 @@ class MultiverseSimulationLaunch(MultiverseLaunch):
         for config_name, config_data in self.worlds.get(world_name, {}).items():
             cmd.append(f"--{config_name}={config_data}")
 
+        if simulation_data.get("headless", False):
+            cmd.append("--headless")
+
         if "viewer" in simulation_data:
             viewer = simulation_data["viewer"]
             read_objects = viewer.get("read", {})
