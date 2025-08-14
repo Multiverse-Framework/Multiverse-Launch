@@ -77,7 +77,7 @@ else
     ($PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_multiverse_server.py --muv_file="$MUV_FILE")
 fi
 
-($PYTHON_EXECUTABLE "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_simulators.py --muv_file="$MUV_FILE")
+(PYTHONPATH=$PYTHONPATH:"$MULTIVERSE_LAUNCH_PATH"/src/multiverse_connectors/multiverse_python_connector "$MULTIVERSE_LAUNCH_PATH"/scripts/launch_simulators.py --muv_file="$MUV_FILE")
 
 for distro in noetic; do
     if [ -f "/opt/ros/$distro/setup.sh" ]; then

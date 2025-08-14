@@ -43,6 +43,8 @@ def parse_isaac_sim(resources_paths: List[str], isaac_sim_data: Dict[str, Any]):
                                                                                      "path"])
             entity_dict = isaac_sim_data[entity_str]
             isaac_sim_args.append(f"--{entity_str}={entity_dict}".replace(" ", ""))
+    if "references" in isaac_sim_data:
+        isaac_sim_args.append(f"--references={isaac_sim_data['references']}".replace(" ", ""))
 
     return isaac_sim_args
 
